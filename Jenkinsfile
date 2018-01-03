@@ -95,7 +95,6 @@ pipeline {
     }
     
     // Stages triggered by cron
-    stage('cron') {
     stage('build-scripts-checkout') {
       when {
         expression { JOB_TYPE == "cron" }
@@ -148,13 +147,17 @@ pipeline {
         echo 'cd ${HOME}/workspace/build-scripts-cron/ && git checkout master'
       }
     }
-    post {
-      always {
+    
+    stage('notify-cron') {
+      when {
+        expression { JOB_TYPE == "cron" }
+      }
+      
+      steps {
         emailext(to: 'shadowwalkersb@gmail.com',  
                           subject: '[JenkinsCI/$PROJECT_NAME/cron] Build # $BUILD_NUMBER - $BUILD_STATUS!', 
                           body: '''${SCRIPT, template="groovy-text.template"}''')
       }
-    }
     }
   }
 }
