@@ -7,28 +7,7 @@ source:
 
 requirements:
     {% set reqs_common = [
-            "msinttypes",  # [win]
             "python 2.7.*",
-            "boost 1.63.*",
-            "fftw-mpi",
-            "numpy x.x",  # [linux]
-            "numpy",      # [not linux]
-            "ftgl",
-            "freetype",
-            "gsl",
-            "hdf5",
-            "jpeg",
-            "libtiff",
-            "libpng",
-            "zlib",
-            "matplotlib",
-            "ipython",
-            "pyqt 4.*",
-            "pyopengl 3.1.0",
-            "theano",
-            "scikit-learn",
-            "bsddb",       # [not win]
-            "pydusa",      # [not win]
     ] %}
     
     build:
