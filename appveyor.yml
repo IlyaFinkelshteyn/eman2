@@ -21,7 +21,6 @@ install:
     - conda config --set show_channel_urls true
 
     - conda install --quiet --yes conda-build=2
-    - conda update --yes --quiet conda -c defaults
 
     - conda info
     - conda config --get
