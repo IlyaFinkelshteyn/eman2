@@ -148,6 +148,13 @@ pipeline {
         echo 'cd ${HOME}/workspace/build-scripts-cron/ && git checkout master'
       }
     }
+    post {
+      always {
+        emailext(to: 'shadowwalkersb@gmail.com',  
+                          subject: '[JenkinsCI/$PROJECT_NAME/cron] Build # $BUILD_NUMBER - $BUILD_STATUS!', 
+                          body: '''${SCRIPT, template="groovy-text.template"}''')
+      }
+    }
     }
   }
 }
