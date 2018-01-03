@@ -95,6 +95,7 @@ pipeline {
     }
     
     // Stages triggered by cron
+    stage('cron') {
     stage('build-scripts-checkout') {
       when {
         expression { JOB_TYPE == "cron" }
@@ -146,6 +147,7 @@ pipeline {
       steps {
         echo 'cd ${HOME}/workspace/build-scripts-cron/ && git checkout master'
       }
+    }
     }
   }
 }
