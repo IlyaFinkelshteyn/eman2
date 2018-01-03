@@ -11,8 +11,6 @@ platform:
 
 install:
     - set
-    # Cywing's git breaks conda-build. (See https://github.com/conda-forge/conda-smithy-feedstock/pull/2.)
-    - rmdir C:\cygwin /s /q
 
     - call %CONDA_INSTALL_LOCN%\Scripts\activate.bat
     - set PYTHONUNBUFFERED=1
